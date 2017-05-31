@@ -8,11 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "AdditionQuestion.h"
+#import "InputHandler.h"
+#import "ScoreKeeper.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
+
         BOOL gameOn = YES;
-        char input[255]; // 255 unit long array of characters
         
         while (gameOn)
         {
@@ -21,19 +23,19 @@ int main(int argc, const char * argv[]) {
             NSLog(@"Enter 'quit' to end game");
             NSLog(@"%@", newQuestion.question); // quit option
             
-            fgets(input, 255, stdin); // limit input max to 255 characters
-            strtok(input, "\n");
+            InputHandler *inputHandler = [[InputHandler alloc] init];
             
-//            NSInteger numberSomething = atoi(input); // should convert character to NSInteger. Alt to convertedChar
-            NSString *convertedChar = [NSString stringWithUTF8String:input]; // Convert char array to an NSString objec
+            NSString *convertedChar = [inputHandler readInput];
+            
             NSNumberFormatter *stringToNumber = [[NSNumberFormatter alloc] init];
             stringToNumber.numberStyle = NSNumberFormatterNoStyle;
+            
             
             NSNumber *myNumber = [stringToNumber numberFromString:convertedChar];
             
             if ([convertedChar isEqualToString:@"quit"])
             {
-                return 0;
+                break;
             }
             else if ([myNumber integerValue] == newQuestion.answer)
             {
@@ -48,6 +50,7 @@ int main(int argc, const char * argv[]) {
                 continue;
             }
         }
+        
     }
     return 0;
 }
