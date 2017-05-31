@@ -20,7 +20,11 @@
 }
 
 - (void)generateQuestion
-{}
+{
+    NSInteger add = super.leftValue + super.rightValue;
+    super.question = [NSString stringWithFormat:@"%li + %li", super.leftValue, super.rightValue];
+    super.answer = add;
+}
 
 //NSInteger num1 = arc4random_uniform(91) + 10;
 //NSInteger num2 = arc4random_uniform(91) + 10;

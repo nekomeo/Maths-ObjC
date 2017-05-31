@@ -20,6 +20,10 @@
 }
 
 - (void)generateQuestion
-{}
+{
+    NSInteger divide = super.leftValue / super.rightValue;
+    super.question = [NSString stringWithFormat:@"%li + %li", super.leftValue, super.rightValue];
+    super.answer = divide;
+}
 
 @end

@@ -20,6 +20,10 @@
 }
 
 - (void)generateQuestion
-{}
+{
+    NSInteger multiply = super.leftValue * super.rightValue;
+    super.question = [NSString stringWithFormat:@"%li + %li", super.leftValue, super.rightValue];
+    super.answer = multiply;
+}
 
 @end
