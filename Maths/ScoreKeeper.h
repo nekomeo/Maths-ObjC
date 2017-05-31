@@ -10,9 +10,9 @@
 
 @interface ScoreKeeper : NSObject
 
-@property NSNumber *right;
-@property NSNumber *wrong;
+@property NSInteger right;
+@property NSInteger wrong;
 
--(NSNumber *)score;
+-(NSString *)score;
 
 @end

@@ -15,6 +15,8 @@ int main(int argc, const char * argv[]) {
     @autoreleasepool {
 
         BOOL gameOn = YES;
+        ScoreKeeper *scoreKeeper = [[ScoreKeeper alloc] init];
+        InputHandler *inputHandler = [[InputHandler alloc] init];
         
         while (gameOn)
         {
@@ -22,8 +24,6 @@ int main(int argc, const char * argv[]) {
             
             NSLog(@"Enter 'quit' to end game");
             NSLog(@"%@", newQuestion.question); // quit option
-            
-            InputHandler *inputHandler = [[InputHandler alloc] init];
             
             NSString *convertedChar = [inputHandler readInput];
             
@@ -40,10 +40,14 @@ int main(int argc, const char * argv[]) {
             else if ([myNumber integerValue] == newQuestion.answer)
             {
                 NSLog(@"Right!");
+                scoreKeeper.right++;
+                NSLog(@"%@", [scoreKeeper score]);
             }
             else if ([myNumber integerValue] != newQuestion.answer)
             {
                 NSLog(@"Wrong!");
+                scoreKeeper.wrong++;
+                NSLog(@"%@", [scoreKeeper score]);
             }
             else
             {
