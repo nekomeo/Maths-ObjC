@@ -10,6 +10,7 @@
 
 @interface QuestionManager : NSObject
 
-@property NSMutableArray *questions;
+@property NSMutableArray *question;
+//@property (nonatomic, strong) NSString *timeOutput;
 
 @end

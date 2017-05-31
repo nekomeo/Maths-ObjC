@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AdditionQuestion.h"
+#import "Question.h"
 #import "InputHandler.h"
 #import "ScoreKeeper.h"
+#import "QuestionManager.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -17,10 +18,11 @@ int main(int argc, const char * argv[]) {
         BOOL gameOn = YES;
         ScoreKeeper *scoreKeeper = [[ScoreKeeper alloc] init];
         InputHandler *inputHandler = [[InputHandler alloc] init];
+//        QuestionManager *questions = [[QuestionManager alloc] init];
         
         while (gameOn)
         {
-            AdditionQuestion *newQuestion = [[AdditionQuestion alloc] init];
+            Question *newQuestion = [[Question alloc] init];
             
             NSLog(@"Enter 'quit' to end game");
             NSLog(@"%@", newQuestion.question); // quit option

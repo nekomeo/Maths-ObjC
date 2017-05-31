@@ -7,6 +7,7 @@
 //
 
 #import "QuestionManager.h"
+#include "Question.h"
 
 @implementation QuestionManager
 
@@ -15,13 +16,31 @@
     self = [super init];
     if (self)
     {
-
-        
-        //        _question = [NSString stringWithFormat:@"%li + %li", num1, num2];
-//        _answer = add;
-//        _startTime = [NSDate date];
+        _question = [NSMutableArray new];
     }
     return self;
 }
+
+//- (NSInteger) answer;
+//- (NSTimeInterval) answerTime;
+//- (NSInteger)answer
+//{
+//    _endTime = [NSDate date];
+//    return _answer;
+//}
+//
+//- (NSTimeInterval) answerTime
+//{
+//    NSTimeInterval answerTime = [_endTime timeIntervalSinceDate:_startTime];
+//    return answerTime;
+//}
+
+//- (NSString *)timeOutput
+//{
+//    Question *timeOutput = [[Question alloc] init];
+//    timeOutput =
+//    
+//    return timeOutput;
+//}
 
 @end
