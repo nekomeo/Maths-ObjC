@@ -42,12 +42,14 @@ int main(int argc, const char * argv[]) {
                 NSLog(@"Right!");
                 scoreKeeper.right++;
                 NSLog(@"%@", [scoreKeeper score]);
+                NSLog(@"Execution time: %.01fs", [newQuestion answerTime]);
             }
             else if ([myNumber integerValue] != newQuestion.answer)
             {
                 NSLog(@"Wrong!");
                 scoreKeeper.wrong++;
                 NSLog(@"%@", [scoreKeeper score]);
+                NSLog(@"Execution time: %.01fs", [newQuestion answerTime]);
             }
             else
             {
