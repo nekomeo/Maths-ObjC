@@ -21,9 +21,8 @@
 
 - (void)generateQuestion
 {
-    NSInteger divide = super.leftValue / super.rightValue;
-    super.question = [NSString stringWithFormat:@"%li + %li", super.leftValue, super.rightValue];
-    super.answer = divide;
+    super.question = [NSString stringWithFormat:@"%li / %li", super.leftValue, super.rightValue];
+    super.answer = self.leftValue / self.rightValue;
 }
 
 @end

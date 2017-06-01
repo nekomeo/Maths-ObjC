@@ -7,6 +7,7 @@
 //
 
 #import "QuestionFactory.h"
+#import "Question.h"
 
 @implementation QuestionFactory
 
@@ -15,10 +16,16 @@
     self = [super init];
     if (self) {
         NSArray *questionSubclassNames = @[@"AdditionQuestion", @"SubtractionQuestion", @"MultiplicationQuestion", @"DivisionQuestion"];
-        NSLog(@"%@", questionSubclassNames);
+        _questionSubclassNames = questionSubclassNames;
     }
     return self;
 }
 
+- (Question *)generateRandomQuestion
+{
+    int index = arc4random_uniform(4);
+    Question *question = [[NSClassFromString(self.questionSubclassNames[index]) alloc] init];
+    return question;
+}
 
 @end

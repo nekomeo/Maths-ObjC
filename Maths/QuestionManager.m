@@ -21,19 +21,6 @@
     return self;
 }
 
-//- (NSInteger) answer;
-//- (NSTimeInterval) answerTime;
-//- (NSInteger)answer
-//{
-//    _endTime = [NSDate date];
-//    return _answer;
-//}
-//
-//- (NSTimeInterval) answerTime
-//{
-//    NSTimeInterval answerTime = [_endTime timeIntervalSinceDate:_startTime];
-//    return answerTime;
-//}
 
 - (double)timeOutput
 {
@@ -43,20 +30,13 @@
     {
         totalTimePerQuestion += questions.answerTime;
     }
-//    NSString *totalTime = [NSString stringWithFormat:@"%.01f", questionManager.timeOutput];
-//    NSLog(@"Total time %@s", totalTime);
-    
-//    NSTimeInterval averageTime = totalTimePerQuestion / self.questions.count;
     
     return totalTimePerQuestion;
 }
 
 - (double)timeAverage
 {
-    //double somevar = [self timeOutput];
-    //NSTimeInterval *averageTime = [[_timeOutput alloc] init];
     double averageTime = [self timeOutput] / self.questions.count;
-    
     return averageTime;
 }
 

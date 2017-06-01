@@ -21,9 +21,8 @@
 
 - (void)generateQuestion
 {
-    NSInteger subtract = super.leftValue - super.rightValue;
-    super.question = [NSString stringWithFormat:@"%li + %li", super.leftValue, super.rightValue];
-    super.answer = subtract;
+    super.question = [NSString stringWithFormat:@"%li - %li", super.leftValue, super.rightValue];
+    super.answer = self.leftValue - self.rightValue;
 }
 
 @end

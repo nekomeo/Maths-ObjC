@@ -26,6 +26,8 @@ int main(int argc, const char * argv[]) {
         {
             Question *newQuestion = [[Question alloc] init];
             [questionManager.questions addObject:newQuestion];
+            newQuestion = [questionFactory generateRandomQuestion];
+            
             
             NSLog(@"Enter 'quit' to end game");
             NSLog(@"%@", newQuestion.question); // quit option

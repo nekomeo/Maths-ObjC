@@ -15,7 +15,6 @@
     double total = self.right + self.wrong;
     double average = self.right / total * 100.0f;
     
-    // Keeps track of the score of right and wrong answers
     NSString *tracker = [NSString stringWithFormat:@"Score: %li right, %li wrong, --- %.2f\%%", self.right, self.wrong, average];
     return tracker;
 }
