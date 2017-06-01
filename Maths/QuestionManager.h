@@ -7,10 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Question.h"
 
 @interface QuestionManager : NSObject
 
-@property NSMutableArray *question;
-//@property (nonatomic, strong) NSString *timeOutput;
+@property NSMutableArray *questions;
+@property (nonatomic) double timeOutput, timeAverage;
+
+- (double)timeAverage;
+- (double)timeOutput;
 
 @end
