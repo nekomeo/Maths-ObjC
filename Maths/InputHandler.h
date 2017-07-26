@@ -10,6 +10,6 @@
 
 @interface InputHandler : NSObject
 
-- (NSString *)readInput;
++ (NSString *)questionGenerator:(NSString *)queryString;
 
 @end

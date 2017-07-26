@@ -10,16 +10,16 @@
 
 @implementation InputHandler
 
-- (NSString *)readInput
++ (NSString *)questionGenerator:(NSString *)queryString
 {
     char input[255];
     
+    NSLog(@"Please enter a value. Enter 'quit' to end.\n%@", queryString);
+    
     fgets(input, 255, stdin);
-    strtok(input, "\n");
+    NSString *trimmedInput = [[NSString stringWithCString:input encoding:NSUTF8StringEncoding] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]; // Convert char array to an NSString object
     
-    NSString *convertedChar = [NSString stringWithUTF8String:input]; // Convert char array to an NSString object
-    
-    return convertedChar;
+    return trimmedInput;
 }
 
 

@@ -13,8 +13,7 @@
 
 - (instancetype)init
 {
-    self = [super init];
-    if (self)
+    if (self = [super init])
     {
         _questions = [NSMutableArray new];
     }
@@ -22,22 +21,19 @@
 }
 
 
-- (double)timeOutput
+- (NSString *)timeOutput
 {
-    NSTimeInterval totalTimePerQuestion = 0.0;
+    NSTimeInterval totalTime = 0.0;
     
     for (Question *questions in self.questions)
     {
-        totalTimePerQuestion += questions.answerTime;
+        totalTime += [questions answerTime];
     }
+    NSTimeInterval averageTime = totalTime / self.questions.count;
     
-    return totalTimePerQuestion;
-}
-
-- (double)timeAverage
-{
-    double averageTime = [self timeOutput] / self.questions.count;
-    return averageTime;
+    NSString *timeToAnswer = [NSString stringWithFormat:@"Total time: %.2fs, average time: %.2fs", totalTime, averageTime];
+    
+    return timeToAnswer;
 }
 
 @end

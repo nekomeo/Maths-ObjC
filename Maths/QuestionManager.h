@@ -11,10 +11,8 @@
 
 @interface QuestionManager : NSObject
 
-@property NSMutableArray *questions;
-@property (nonatomic) double timeOutput, timeAverage;
+@property (nonatomic, strong) NSMutableArray *questions;
 
-- (double)timeAverage;
-- (double)timeOutput;
+- (NSString *)timeOutput;
 
 @end

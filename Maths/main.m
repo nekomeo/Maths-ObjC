@@ -18,53 +18,36 @@ int main(int argc, const char * argv[]) {
 
         BOOL gameOn = YES;
         ScoreKeeper *scoreKeeper = [[ScoreKeeper alloc] init];
-        InputHandler *inputHandler = [[InputHandler alloc] init];
         QuestionManager *questionManager = [[QuestionManager alloc] init];
         QuestionFactory *questionFactory = [[QuestionFactory alloc] init];
         
         while (gameOn)
         {
-            Question *newQuestion = [[Question alloc] init];
+            Question *newQuestion = [questionFactory generateRandomQuestion];
             [questionManager.questions addObject:newQuestion];
-            newQuestion = [questionFactory generateRandomQuestion];
+          
             
+            NSString *convertedChar = [InputHandler questionGenerator:newQuestion.question];
             
-            NSLog(@"Enter 'quit' to end game");
-            NSLog(@"%@", newQuestion.question); // quit option
-            
-            NSString *convertedChar = [inputHandler readInput];
-            
-            NSNumberFormatter *stringToNumber = [[NSNumberFormatter alloc] init];
-            stringToNumber.numberStyle = NSNumberFormatterNoStyle;
-            
-            NSNumber *myNumber = [stringToNumber numberFromString:convertedChar];
+            NSInteger myAnswer = [convertedChar integerValue];
             
             if ([convertedChar isEqualToString:@"quit"])
             {
                 break;
             }
-            else if ([myNumber integerValue] == newQuestion.answer)
+            else if (myAnswer == newQuestion.answer)
             {
                 NSLog(@"Right!");
                 scoreKeeper.right++;
-                NSLog(@"%@", [scoreKeeper score]);
-                NSString *totalTime = [NSString stringWithFormat:@"%.01f", questionManager.timeOutput];
-                NSString *averageTime = [NSString stringWithFormat:@"%0.1f", questionManager.timeAverage];
-                NSLog(@"Total time: %@s, average time: %@", totalTime, averageTime);
-            }
-            else if ([myNumber integerValue] != newQuestion.answer)
-            {
-                NSLog(@"Wrong!");
-                scoreKeeper.wrong++;
-                NSLog(@"%@", [scoreKeeper score]);
-                NSString *totalTime = [NSString stringWithFormat:@"%.01f", questionManager.timeOutput];
-                NSString *averageTime = [NSString stringWithFormat:@"%0.1f", questionManager.timeAverage];
-                NSLog(@"Total time: %@s, average time: %@", totalTime, averageTime);
             }
             else
             {
-                continue;
+                NSLog(@"Wrong!");
+                scoreKeeper.wrong++;
             }
+            NSLog(@"%@",[scoreKeeper score]);
+//            NSLog(@"Time between questions: %f", [question answerTime]);
+            NSLog(@"%@", [questionManager timeOutput]);
         }
         
     }

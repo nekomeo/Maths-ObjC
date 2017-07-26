@@ -18,6 +18,7 @@
 @property (nonatomic) NSInteger rightValue;
 @property (nonatomic) NSInteger leftValue;
 
+- (NSInteger)answer;
 - (NSTimeInterval) answerTime;
 - (void)generateQuestion;
 
